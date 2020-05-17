@@ -18,6 +18,13 @@ class Employees
     private $id;
 
     /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer", name="subsidiary_id")
+     */
+    private $subsidiaryId;
+
+    /**
      * @ORM\Column(type="string", length=255, name="first_name")
      */
     private $firstName;
@@ -120,6 +127,18 @@ class Employees
     public function setLastNameUp(string $lastNameUp): self
     {
         $this->lastNameUp = $lastNameUp;
+
+        return $this;
+    }
+
+    public function getSubsidiaryId(): ?int
+    {
+        return $this->subsidiaryId;
+    }
+
+    public function setSubsidiaryId(int $subsidiaryId): self
+    {
+        $this->subsidiaryId = $subsidiaryId;
 
         return $this;
     }
