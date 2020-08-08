@@ -16,5 +16,10 @@
         <li>Your controller at <code><a href="{{ 'C:/work/_programming/php/projects/exampleSymfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/work/_programming/php/projects/exampleSymfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
     </ul>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
 </div>
 {% endblock %}

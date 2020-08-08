@@ -1,0 +1,32 @@
+Symfony CLI version v4.14.4 (c) 2017-2020 Symfony SAS
+Symfony CLI helps developers manage projects, from local code to remote infrastructure
+
+These are common commands used in various situations:
+
+Work on a project locally
+
+  new                                                            Create a new Symfony project
+  serve                                                          Run a local web server
+  server:stop                                                    Stop the local web server
+  security:check                                                 Check security issues in project dependencies
+  composer                                                       Runs Composer without memory limit
+  console                                                        Runs the Symfony Console (bin/console) for current project
+  php, pecl, pear, php-fpm, php-cgi, php-config, phpdbg, phpize  Runs the named binary using the configured PHP version
+
+Manage a project on Cloud
+
+  login        Log in with your SymfonyConnect account
+  init         Initialize a new project using templates
+  link         Link current git repository to a SymfonyCloud project
+  projects     List active projects
+  envs         List environments
+  env:create   Create an environment
+  tunnel:open  Open SSH tunnels to the app's services
+  ssh          Open an SSH connection to the app container
+  deploy       Deploy an environment
+  domains      List domains
+  vars         List variables
+  user:add     Add a user to the project
+
+Show all commands with symfony.exe help,
+Get help for a specific command with symfony.exe help COMMAND.
