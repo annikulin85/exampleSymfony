@@ -21,5 +21,29 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">DateOfBirth</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+        <tr>
+            <th scope="row">{{ employee.id }}</th>
+            <td>{{ employee.firstName }}</td>
+            <td>{{ employee.lastName }}</td>
+            <td>{{ employee.dateOfBirth }}</td>
+            <td>{{ employee.phoneNumber }}</td>
+            <td><a href="{{ path('remove_employee', {'employee': employee.id}) }}" class="btn btn-warning">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
