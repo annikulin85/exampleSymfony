@@ -13,16 +13,10 @@ class Employees
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer", name="employee_id")
      */
     private $id;
-
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="integer", name="subsidiary_id")
-     */
-    private $subsidiaryId;
 
     /**
      * @Assert\NotBlank()
@@ -41,7 +35,7 @@ class Employees
     /**
      * @Assert\NotBlank()
      *
-     * @ORM\Column(type="date", name="date_of_birth")
+     * @ORM\Column(type="datetime", name="date_of_birth")
      */
     private $dateOfBirth;
 
@@ -55,16 +49,9 @@ class Employees
     /**
      * @Assert\NotBlank()
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="junk")
      */
     private $junk;
-
-    /**
-     * @Assert\NotBlank()
-     *
-     * @ORM\Column(type="string", length=255, name="last_name_up")
-     */
-    private $lastNameUp;
 
     public function getId(): ?int
     {
@@ -95,12 +82,15 @@ class Employees
         return $this;
     }
 
-    public function getDateOfBirth(): ?\DateTimeInterface
+    public function getDateOfBirth()//: ?\DateTime
     {
-        return $this->dateOfBirth;
+        if ($this->dateOfBirth !== null)
+            return $this->dateOfBirth->format('Y-m-d');
+        else
+            return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
+    public function setDateOfBirth(\DateTime $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
 
@@ -131,27 +121,4 @@ class Employees
         return $this;
     }
 
-    public function getLastNameUp(): ?string
-    {
-        return $this->lastNameUp;
-    }
-
-    public function setLastNameUp(string $lastNameUp): self
-    {
-        $this->lastNameUp = $lastNameUp;
-
-        return $this;
-    }
-
-    public function getSubsidiaryId(): ?int
-    {
-        return $this->subsidiaryId;
-    }
-
-    public function setSubsidiaryId(int $subsidiaryId): self
-    {
-        $this->subsidiaryId = $subsidiaryId;
-
-        return $this;
-    }
 }

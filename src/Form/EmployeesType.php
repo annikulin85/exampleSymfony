@@ -22,7 +22,6 @@ class EmployeesType extends AbstractType
             ->add('dateOfBirth', DateType::class)
             ->add('phoneNumber', TextType::class)
             ->add('junk', TextType::class)
-            ->add('lastNameUp', TextType::class)
             ->add('submit',SubmitType::class)
         ;
     }

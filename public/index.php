@@ -22,6 +22,10 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
-$response = $kernel->handle($request);
+try {
+    $response = $kernel->handle($request);
+} catch (Exception $e) {
+    echo "Exception: {$e->getMessage()}<br />";
+}
 $response->send();
 $kernel->terminate($request, $response);
